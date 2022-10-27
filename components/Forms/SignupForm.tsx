@@ -1,15 +1,9 @@
-import { useRouter } from 'next/router'
 import { useSubmit } from '../../hooks'
 import { SingupResponse } from '../../types'
 import { Input } from './'
 
 export const SignupForm = ()=>{
-    const router = useRouter()
-    const { data, onSubmit } = useSubmit<SingupResponse>('users')
-
-    if(data){
-        router.push('/')
-    }
+    const { onSubmit } = useSubmit<SingupResponse>('users')
 
     return <form onSubmit={onSubmit} >
         <h2>SignUp</h2>

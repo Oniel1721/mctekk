@@ -1,4 +1,4 @@
-export type Session = {
+export type ApiSession = {
     id: number,
     token: string,
     time: string,
@@ -12,10 +12,11 @@ export type User = {
     default_company: number
 }
 
+export type Session = User & ApiSession
 
 export type SingupResponse = {
     user: User,
-    session: Session
+    session: ApiSession
 }   
 
 export type ApiError = {
