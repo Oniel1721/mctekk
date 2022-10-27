@@ -8,14 +8,18 @@ interface Props {
 
 export const Input = (props: Props)=>{
     return (
-        <input 
-            className="form-input" 
-            placeholder={props.children} 
-            min={props.minLength ?? 0} 
-            required={props.required ?? true} 
-            type={props.type || 'text'} 
-            name={props.name} 
-        />
+        <div className="input-box">
+            <input 
+                className="form-input input" 
+                min={props.minLength ?? 0} 
+                required={props.required ?? true} 
+                type={props.type || 'text'} 
+                name={props.name} 
+            />
+            <span className="input-placeholder">
+                {props.children}
+            </span>
+        </div>
     )
     
 }

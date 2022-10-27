@@ -5,11 +5,11 @@ import { isClientSide } from '../utils'
 export const usePageSecure = (session: ApiSession | null)=>{
     const router = useRouter()
     if(!isClientSide()) return;
-    if(session && ['/signin', '/signup'].includes(router.asPath)){
+    if(session && router.asPath === '/login'){
         router.push('/')
     }
 
     if(!session && router.asPath === '/'){
-        router.push('/signin')
+        router.push('/login')
     }
 }

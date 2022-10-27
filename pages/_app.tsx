@@ -1,6 +1,8 @@
 import '../styles/globals.css'
 import '../styles/login.css'
 import '../styles/form.css'
+import '../styles/input.css'
+
 
 import type { AppProps } from 'next/app'
 

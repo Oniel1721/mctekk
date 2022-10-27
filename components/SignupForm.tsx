@@ -1,13 +1,15 @@
 import { useSubmit } from '../hooks'
 import { SingupResponse } from '../types'
-import { Input, HelperText } from './'
+import { Input, HelperText, SubmitButton } from './'
 
 export const SignupForm = ()=>{
-    const { onSubmit, error } = useSubmit<SingupResponse>('users')
+    const { onSubmit, error, isLoading } = useSubmit<SingupResponse>('users')
 
     return <section className='form-section signup-form'> 
         <form className='form' onSubmit={onSubmit} >
+            
             <h3 className='form-title'>Sign Up</h3>
+
             <Input name='firstname'>First name</Input>
             <Input name='lastname'>Last name</Input>
             <Input type='email' name='email'>Email</Input>
@@ -16,9 +18,10 @@ export const SignupForm = ()=>{
             <Input name='default_company'>Company</Input>
             
             <HelperText text={error} />
-            <button className='form-btn' type='submit'>
+
+            <SubmitButton isLoading={isLoading}>
                 Register
-            </button>
+            </SubmitButton>
         </form>
     </section>
 }

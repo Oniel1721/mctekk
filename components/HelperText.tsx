@@ -6,6 +6,8 @@ interface Props {
 export const HelperText = (props: Props)=>{
 
     return (
-        <p style={{color: 'red'}}>{props.text}</p>
+        <>
+            {props.text && <p className="form-error">{props.text}</p>}
+        </>
     )
 }
