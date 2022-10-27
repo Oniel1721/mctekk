@@ -7,8 +7,15 @@ interface Props {
 }
 
 export const Input = (props: Props)=>{
-    return <article>
-        <label htmlFor={props.name}>{props.children}</label>
-        <input min={props.minLength ?? 0} required={props.required ?? true} type={props.type || 'text'} name={props.name} />
-    </article>
+    return (
+        <input 
+            className="form-input" 
+            placeholder={props.children} 
+            min={props.minLength ?? 0} 
+            required={props.required ?? true} 
+            type={props.type || 'text'} 
+            name={props.name} 
+        />
+    )
+    
 }
