@@ -1,5 +1,5 @@
 import { useCallback, FormEvent, useState } from "react"
-import { ApiError, ApiSession, SingupResponse } from "../types"
+import { ApiSession, SingupResponse } from "../types"
 import { useSession } from "./"
 
 type UseSubmitState = 'idle' | 'loading' | 'error' | 'success'
@@ -7,7 +7,7 @@ type UseSubmitState = 'idle' | 'loading' | 'error' | 'success'
 export const useSubmit = <T extends ApiSession | SingupResponse>(endpoint: 'users' | 'auth')=>{
     const [state, setState] = useState<UseSubmitState>('idle')
     const [data, setData] = useState<T>()
-    const [error, setError] = useState<ApiError>()
+    const [error, setError] = useState<string>()
 
     useSession(data)
 
@@ -24,12 +24,17 @@ export const useSubmit = <T extends ApiSession | SingupResponse>(endpoint: 'user
         })
         .then(response=>response.json())
         .then((json)=>{
+            if(json.errors){
+                setState('error')
+                setError(json.errors.message)
+                return;
+            }
             setState('success')
             setData(json)
         })
         .catch((err)=>{
             setState('error')
-            setError(err)
+            setError(err.message)
         })
     }, [endpoint])
 

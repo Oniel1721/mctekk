@@ -1,4 +1,4 @@
-import { SigninForm } from '../components/Forms'
+import { SigninForm } from '../components'
 
 export default function SingupPage () {
     return <>
