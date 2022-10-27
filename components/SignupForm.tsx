@@ -1,9 +1,9 @@
-import { useSubmit } from '../../hooks'
-import { SingupResponse } from '../../types'
-import { Input } from './'
+import { useSubmit } from '../hooks'
+import { SingupResponse } from '../types'
+import { Input, HelperText } from './'
 
 export const SignupForm = ()=>{
-    const { onSubmit } = useSubmit<SingupResponse>('users')
+    const { onSubmit, error } = useSubmit<SingupResponse>('users')
 
     return <form onSubmit={onSubmit} >
         <h2>SignUp</h2>
@@ -15,6 +15,7 @@ export const SignupForm = ()=>{
             <Input minLength={8} type='password' name='verify_password'>Confirm password</Input>
             <Input name='default_company'>Company</Input>
         </section>
+        <HelperText text={error} />
         <button type='submit'>
             Singup
         </button>
