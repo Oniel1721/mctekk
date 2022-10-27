@@ -1,6 +1,3 @@
-import { useRef } from "react"
-
-
 interface Props {
     name: string,
     children: any,
@@ -10,9 +7,8 @@ interface Props {
 }
 
 export const Input = (props: Props)=>{
-    const type = useRef(props.type)
     return <article>
         <label htmlFor={props.name}>{props.children}</label>
-        <input min={props.minLength ?? 0} required={props.required ?? true} type={type.current || 'text'} name={props.name} />
+        <input min={props.minLength ?? 0} required={props.required ?? true} type={props.type || 'text'} name={props.name} />
     </article>
 }
