@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useSession } from '../hooks/'
+import { useUserList } from '../hooks/'
 
 export default function HomePage() {
-  const session = useSession()
+  const userList = useUserList()
+  
   return (
     <>
       <Head>
@@ -13,7 +14,13 @@ export default function HomePage() {
       </Head>
 
       <main>
-        
+        <ul>
+          {
+            userList.map((user)=>{
+              return <li key={user.email}>{user.firstname}</li>
+            })
+          }
+        </ul>
       </main>
 
       <footer>
