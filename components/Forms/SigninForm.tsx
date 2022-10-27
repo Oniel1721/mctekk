@@ -1,14 +1,9 @@
-import { useRouter } from 'next/router'
 import { useSubmit } from '../../hooks'
-import { Session } from '../../types'
+import { ApiSession } from '../../types'
 import { Input } from './'
 
 export const SigninForm = ()=>{
-    const router = useRouter()
-    const { data, onSubmit } = useSubmit<Session>('auth')
-    if(data){
-        router.push('/')
-    }
+    const { onSubmit } = useSubmit<ApiSession>('auth')
 
     return <form onSubmit={onSubmit} >
         <h2>SignIp</h2>

@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useSession } from '../hooks/'
 
 export default function HomePage() {
+  const session = useSession()
   return (
     <>
       <Head>
