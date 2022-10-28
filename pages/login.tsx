@@ -21,7 +21,7 @@ export default function LoginPage () {
                         <button onClick={handleSigninClick} className='login-btn' >Sign in</button>
                     </article>
                     <article className='login-box login-signup'>
-                        <h2 className='login-h2'>Don't Have an Account?</h2>
+                        <h2 className='login-h2'>Don&apos;t Have an Account?</h2>
                         <button onClick={handleSignupClick} className='login-btn'>Sign up</button>
                     </article>
                 </aside>
