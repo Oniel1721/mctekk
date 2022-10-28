@@ -1,20 +1,20 @@
 import { useSubmit } from '../hooks'
 import { ApiSession } from '../types'
-import { Input, HelperText } from './'
+import { Input, HelperText, SubmitButton } from './'
 
 export const SigninForm = ()=>{
-    const { onSubmit, error } = useSubmit<ApiSession>('auth')
+    const { onSubmit, error, isLoading } = useSubmit<ApiSession>('auth')
 
-    return <form onSubmit={onSubmit} >
-        <h2>SignIp</h2>
-        <section>
+    return <section className='form-section signin-form'>
+        <form className='form' onSubmit={onSubmit} >
+            <h3 className='form-title'>Sign In</h3>
             <Input type='email' name='email'>Email</Input>
             <Input minLength={8} type='password' name='password'>Password</Input>
-        </section>
-        <HelperText text={error} />
-        <button type='submit'>
-            Signin
-        </button>
-    </form>
+            <HelperText text={error} />
+            <SubmitButton isLoading={isLoading}>
+                Login
+            </SubmitButton>
+        </form>
+    </section> 
 }
 

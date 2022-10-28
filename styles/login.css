@@ -1,0 +1,138 @@
+.login-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #03a9f4;
+    transition: 0.5s;
+}
+
+.login-main.active {
+    background-color: #f43648;
+}
+
+.login-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 20px;
+}
+
+.login-blueBg {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
+}
+
+.login-box {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-h2 {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.login-btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+}
+
+.login-formBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.login-formBx.active{
+    left: 50%;
+}
+
+.login-formBx .signin-form{
+    transition-delay: 0.25s;
+}
+
+.login-formBx.active .signin-form{
+    left: -100%;
+    transition-delay: 0s;
+}
+
+.login-formBx .signup-form{
+    left: 100%;
+    transition-delay: 0;
+}
+
+.login-formBx.active .signup-form{
+    left: 0;
+    transition-delay: 0.25s;
+}
+
+.login-formBx.active .signup-form .form-btn{
+    background-color: #f43648;
+}
+
+@media (max-width: 991px) {
+    .login-container{
+        max-width: 400px;
+        height: 750px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-blueBg{
+        top: 0;
+        height: 100%;
+    }
+
+    .login-formBx{
+        width: 100%;
+        height: 600px;
+        top: 0;
+        box-shadow: none;
+    }
+
+    .login-box {
+       position: absolute;
+       width: 100%; 
+       height: 150px;
+       bottom: 0;
+    }
+
+    .login-signin {
+        top: 0;
+    }
+
+    .login-formBx.active{
+        left: 0;
+        top: 150px;
+    }
+}

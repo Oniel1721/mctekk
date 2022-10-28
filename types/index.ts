@@ -9,17 +9,12 @@ export type User = {
     firstname: string,
     lastname: string,
     email: string,
-    default_company: number
+    default_company: number,
+    id: number
 }
-
-export type Session = User & ApiSession
 
 export type SingupResponse = {
     user: User,
     session: ApiSession
 }   
-
-export type ApiError = {
-    [key: string]: string[]
-}
 
