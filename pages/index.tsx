@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { useUserList } from '../hooks/'
+import { UserItem } from '../components/'
+import { useSignout, useUserList } from '../hooks/'
 
 export default function HomePage() {
   const userList = useUserList()
-  
+  const { onSignout } = useSignout()
   return (
     <>
       <Head>
@@ -13,28 +13,22 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <ul>
+      <main className='user-main'>
+        <ul className='user-list'>
+          <h3 className='user-list-title'>
+            Users 
+          </h3>
+          
           {
             userList.map((user)=>{
-              return <li key={user.email}>{user.firstname}</li>
+              return <UserItem key={user.email} user={user} /> 
             })
           }
         </ul>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <button onClick={onSignout} className='signout-btn'>
+        Sign Out
+      </button>
     </>
   )
 }

@@ -9,7 +9,8 @@ export type User = {
     firstname: string,
     lastname: string,
     email: string,
-    default_company: number
+    default_company: number,
+    id: number
 }
 
 export type SingupResponse = {

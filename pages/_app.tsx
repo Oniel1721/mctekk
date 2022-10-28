@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/user.css'
 import '../styles/login.css'
 import '../styles/form.css'
 import '../styles/input.css'
